@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1= word.lemma
+
+  h3= word.part_of_speech
+
+  ol(class='definitions')
+    each def in word.definitions
+      li= def
+
+  if (word.noun_inflections)
+    include noun_table.jade
+
+  if (word.adjective_inflections)
+    include adjective_table.jade
+
+  if (word.verb_conjugations)
+    include verb_table.jade
