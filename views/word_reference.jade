@@ -1,0 +1,40 @@
+extends layout
+
+block includes
+  title #{word.header} - Discere
+  link(rel='stylesheet', href='/stylesheets/reference_tables.css')
+
+block content
+  .content
+    h1= word.header
+
+    h4.part= word.part_of_speech
+
+    div.definitions
+      ol
+        each def in word.definitions
+          li= def
+
+    if (word.part_of_speech == 'Noun')
+      include tables/noun_table.jade
+
+    if (word.part_of_speech == 'Adjective')
+      include tables/adjective_table.jade
+
+    if (word.part_of_speech == 'Determiner')
+      include tables/adjective_table.jade
+
+    if (word.part_of_speech == 'Verb')
+      include tables/verb_table.jade
+
+    if (word.part_of_speech == 'Pronoun')
+      if (typeof word.forms['Nominative Singular Masculine'] != 'undefined')
+        include tables/pronoun_table.jade
+      else
+        include tables/genderless_pronoun_table.jade
+
+    div.wikilink
+    | See also
+    | <a href=#{"https://en.wiktionary.org/wiki/" + word.lemma + "#Latin"}>#{word.header}</a>
+    | on
+    | <a href="https://en.wiktionary.org/">Wiktionary</a>.

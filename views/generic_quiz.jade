@@ -1,0 +1,37 @@
+extends layout
+
+block includes
+  title Grammar Quiz - Discere
+  link(rel='stylesheet', href='/stylesheets/generic_quiz.css')
+  script(type='text/javascript' src='/javascripts/generic_quiz.js')
+
+block content
+  .wide-content
+    script(type='text/javascript').
+      var answers = !{JSON.stringify(answers)};
+      var displayAnswers = !{JSON.stringify(displayAnswers)};
+    h3
+      a(href='/reference/' + word.id)= word.header
+    h4.part= word.part_of_speech
+
+    div.definitions
+      ol
+        each def in word.definitions
+          li= def
+
+    h3 Quiz
+    table
+      each formName, index in formNames
+        tr
+          form(onsubmit="return checkAnswer(answers, " + index + ")")
+            td.question= formName
+            td
+              input(type="text", 'autocomplete'='off', 'autofocus'= (index === 0), id="input" + index)
+            td(class="img", id="img" + index)
+              img.wrong(src='/images/cross.svg')
+              img.right(src='/images/checkmark.svg')
+            td.answer
+              div(id="answer" + index)
+    form(onsubmit="location.reload()")
+      #submitter-div
+        input#submitter(type="submit" value="Next Page")

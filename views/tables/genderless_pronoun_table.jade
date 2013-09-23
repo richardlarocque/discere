@@ -1,0 +1,39 @@
+h3.table_header Inflections
+if (!word.forms['Nominative Singular'])
+  .error Unable to fetch inflection table.
+else
+  table.reference
+    tr
+      th
+      th Singular
+      th Plural
+    tr.section_start
+      th Nominative
+      td #{word.forms['Nominative Singular']}
+      td #{word.forms['Nominative Plural']}
+    tr
+      th.side_header Genitive
+      td #{word.forms['Genitive Singular']}
+      td #{word.forms['Genitive Plural']}
+    tr
+      th.side_header Dative
+      td #{word.forms['Dative Singular']}
+      td #{word.forms['Dative Plural']}
+    tr
+      th.side_header Accusative
+      td #{word.forms['Accusative Singular']}
+      td #{word.forms['Accusative Plural']}
+    tr
+      th.side_header Ablative
+      td #{word.forms['Ablative Singular']}
+      td #{word.forms['Ablative Plural']}
+    if word.forms['Vocative Singular']
+      tr
+        th.side_header Vocative
+        td #{word.forms['Vocative Singular']}
+        td #{word.forms['Vocative Plural']}
+    if word.forms['Locative Singular']
+      tr
+        th.side_header Locative
+        td #{word.forms['Locative Singular']}
+        td #{word.forms['Locative Plural']}

@@ -1,0 +1,17 @@
+extends layout
+
+block includes
+  title #{query} - Word Lookup - Discere
+  link(rel='stylesheet', href='/stylesheets/lookup_results.css')
+
+block content
+  .content
+    h1 Results matching '#{query}'
+
+    each result in results
+      .result
+        h3
+          a(href='/reference/' + result.id)= result.header
+        h4.part= result.part_of_speech
+        each match in result.matching_forms
+          p= match

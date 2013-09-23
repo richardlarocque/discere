@@ -1,0 +1,56 @@
+h3.table_header Inflections
+if (!word.forms['Nominative Singular Masculine'])
+  .error Unable to fetch inflection table.
+else
+  table.reference
+    tr
+      th(rowspan=2)
+      th.superheader.vsection_start(colspan=3) Singular
+      th.superheader.vsection_start(colspan=3) Plural
+    tr
+      th.vsection_start Masculine
+      th Feminine
+      th Neuter
+      th.vsection_start Masculine
+      th Feminine
+      th Neuter
+    tr.section_start
+      th.side_header Nominative
+      td #{word.forms['Nominative Singular Masculine']}
+      td #{word.forms['Nominative Singular Feminine']}
+      td #{word.forms['Nominative Singular Neuter']}
+      td #{word.forms['Nominative Plural Masculine']}
+      td #{word.forms['Nominative Plural Feminine']}
+      td #{word.forms['Nominative Plural Neuter']}
+    tr
+      th.side_header Genitive
+      td #{word.forms['Genitive Singular Masculine']}
+      td #{word.forms['Genitive Singular Feminine']}
+      td #{word.forms['Genitive Singular Neuter']}
+      td #{word.forms['Genitive Plural Masculine']}
+      td #{word.forms['Genitive Plural Feminine']}
+      td #{word.forms['Genitive Plural Neuter']}
+    tr
+      th.side_header Dative
+      td #{word.forms['Dative Singular Masculine']}
+      td #{word.forms['Dative Singular Feminine']}
+      td #{word.forms['Dative Singular Neuter']}
+      td #{word.forms['Dative Plural Masculine']}
+      td #{word.forms['Dative Plural Feminine']}
+      td #{word.forms['Dative Plural Neuter']}
+    tr
+      th.side_header Accusative
+      td #{word.forms['Accusative Singular Masculine']}
+      td #{word.forms['Accusative Singular Feminine']}
+      td #{word.forms['Accusative Singular Neuter']}
+      td #{word.forms['Accusative Plural Masculine']}
+      td #{word.forms['Accusative Plural Feminine']}
+      td #{word.forms['Accusative Plural Neuter']}
+    tr
+      th.side_header Ablative
+      td #{word.forms['Ablative Singular Masculine']}
+      td #{word.forms['Ablative Singular Feminine']}
+      td #{word.forms['Ablative Singular Neuter']}
+      td #{word.forms['Ablative Plural Masculine']}
+      td #{word.forms['Ablative Plural Feminine']}
+      td #{word.forms['Ablative Plural Neuter']}

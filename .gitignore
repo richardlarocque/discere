@@ -1,2 +1,3 @@
 node_modules/*
+latin/latin-db.sqlite3
 *.swp

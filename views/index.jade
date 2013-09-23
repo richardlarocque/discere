@@ -1,5 +1,48 @@
 extends layout
 
+block includes
+  title Discere
+
 block content
-  h1= title
-  p Welcome to #{title}
+  .content
+    p
+      | This site contains a set of references and quizzes for Latin vocabulary
+      | based on data from <a href='https://en.wiktionary.org'>Wiktionary</a>.
+    p
+      | This site may contain errors.  These may represent errors
+      | in Wiktionary itself or, more likely, bugs in my attempts to parse it.
+    p
+      | The quizzes on this site can be calibrated so that more common Latin words
+      | appear more frequently.  The settings can be adjusted using the drop-down
+      | menu at the top right of the page.  Currently, most of the available
+      | settings are based on the frequency with which words appear in the
+      | <a href='https://en.wikipedia.org/wiki/Aeneid'>Aeneid</a>.  Lower levels
+      | are geared towards beginners; higher levels are more likely to present
+      | rare words.
+    p
+      | The content displayed on this site is based on information provided by
+      | the Wikimedia Foundation and is used under the terms of the
+      | <a href='https://creativecommons.org/licenses/by-sa/3.0/'>Creative Commons Attribution/Share-Alike License</a>.
+      | For more information about this content, including a list of authors,
+      | follow the links to Wiktionary from the word reference pages.
+
+    h2 Exercises
+    ul
+      li
+        a(href='/quiz/definition') Definitions
+      li
+        a(href='/quiz/adjective') Adjective Forms
+      li
+        a(href='/quiz/adverb') Adverb Forms
+      li
+        a(href='/quiz/noun') Noun Forms
+      li
+        a(href='/quiz/pronoun') Pronoun Forms
+      li
+        a(href='/quiz/verb') Verb Forms
+
+    h2 Word Reference
+    form(action='lookup' method='get')
+      input(type='text' name='q')
+      input(type='submit' value='Lookup')
+    a(href='/reference') Jump to random word

@@ -1,7 +1,16 @@
 doctype 5
 html
   head
-    title= title
+    link(rel='stylesheet', href='/stylesheets/reset.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
+    script(type='text/javascript', src='/javascripts/vocab_cookie.js')
+    block includes
   body
+    div#header
+      .clearfix
+        #title
+          a(href='/') Discere
+        #vocab_settings
+          include vocabularies.jade
+
     block content

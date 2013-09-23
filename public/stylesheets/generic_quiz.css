@@ -1,0 +1,69 @@
+
+table#quizform {
+  width: 100%;
+}
+
+td {
+  padding: 3px;
+}
+
+td.question {
+  white-space: nowrap;
+  width: 50%;
+}
+
+td.answer {
+  white-space: normal;
+}
+
+input[type="text"] {
+  -webkit-appearance: none;
+  border: #554444 solid 1px;
+  padding: 0;
+  margin: 0;
+}
+  
+input[type="text"]:focus {
+  border: #554444 solid 1px;
+  padding: 0;
+  margin: 0;
+  outline: #eeaa44 solid 3px;
+  outline-offset: 0px;
+}
+
+span.highlight {
+  background-color: #eeaa44;
+}
+
+img.right {
+  display: none;
+}
+
+img.wrong {
+  display: none;
+}
+
+td.img-wrong img.wrong {
+  display: inline;
+  height: 1em;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  vertical-align: text-top;
+}
+
+td.img-right img.right {
+  display: inline;
+  height: 1em;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  vertical-align: text-top;
+}
+
+div#submitter-div {
+  padding-top: 0.5em;
+}
+
+input#submitter {
+  margin-left: 10px;
+  padding: 2px;
+}
