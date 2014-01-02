@@ -21,10 +21,10 @@ block content
 
     h3 Quiz
     table
-      each formName, index in formNames
+      each question, index in questions
         tr
           form(onsubmit="return checkAnswer(answers, " + index + ")")
-            td.question= formName
+            td.question= question
             td
               input(type="text", 'autocomplete'='off', 'autofocus'= (index === 0), id="input" + index)
             td(class="img", id="img" + index)
