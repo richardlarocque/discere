@@ -26,7 +26,6 @@ var fetchWords = function(vocabParams, callback) {
 
         pretty.definitions = result[i][0];
         pretty.header = result[i][1];
-        console.log(pretty);
 
         json[i] = pretty;
       }
