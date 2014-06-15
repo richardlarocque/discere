@@ -26,6 +26,7 @@ h4 {
 p {
   font-size: 14px;
   padding-bottom: 18px;
+  max-width: 40em;
 }
 
 .definitions {
@@ -37,16 +38,23 @@ ol {
   list-style: inside decimal;
 }
 
+body {
+  background-color: #cccc99;
+}
+
 #header {
   background-color: #cccc99;
   border-bottom: 2px solid #eeaa44;
+  min-height: 32px;
 }
 
-#title {
+a#title {
   font-size: 36px;
   line-height: 36px;
   padding: 18px;
   float: left;
+  color: black;
+  text-decoration: none;
 }
 
 #vocab_settings {
@@ -61,22 +69,22 @@ ol {
   padding-right: 3px;
 }
 
-#header a {
-  color: black;
-  text-decoration: none;
-}
-
 .content {
   padding-top: 18px;
   padding-left: 30px;
   padding-right: 30px;
-  max-width: 512px;
+  padding-bottom: 18px;
+  width: 100%;
+  background-color: white;
 }
 
 .wide-content {
   padding-top: 18px;
   padding-left: 30px;
   padding-right: 30px;
+  padding-bottom: 18px;
+  width: 100%;
+  background-color: white;
 }
 
 h4.part {
@@ -102,6 +110,18 @@ div.wikilink {
 
 .error {
   font-style: italic;
+}
+
+#footer {
+  background-color: #cccc99;
+  border-top: 2px solid #eeaa44;
+  min-height: 32px;
+}
+
+#footer-search {
+  min-height: 36px;
+  padding: 12px;
+  padding-left: 18px;
 }
 
 .clearfix:after {
