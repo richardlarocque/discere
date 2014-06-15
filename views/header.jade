@@ -1,0 +1,14 @@
+div#header
+  .clearfix
+    #title
+      a(href='/') Discere
+    #vocab_settings
+      span Vocabulary Level:
+      form
+        select(onchange='vocabCookie.set(this.value)')
+          if vocabularies
+            each v in vocabularies
+              if (v.id == vocab_value)
+                option(value=v.id selected)= v.title
+              else
+                option(value=v.id)= v.title
