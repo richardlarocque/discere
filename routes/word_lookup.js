@@ -10,6 +10,11 @@ exports.main = function(req, res) {
     if (err) {
       console.log(err);
     }
-    res.render('lookup_results', { 'query': query, 'results': results });
+    if (results.length == 1) {
+      var result = results[0];
+      res.redirect(303, '/reference/' + result.id);
+    } else {
+      res.render('lookup_results', { 'query': query, 'results': results });
+    }
   });
 }
