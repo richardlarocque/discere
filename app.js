@@ -18,7 +18,6 @@ var vocab = require('latin/vocabularies.js');
 var app = express();
 
 // all environments
-app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(express.favicon(
@@ -50,6 +49,4 @@ app.get('/quiz/adjective', generic_quiz.adjective);
 app.get('/quiz/adverb', generic_quiz.adverb);
 app.get('/quiz/pronoun', generic_quiz.pronoun);
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
-});
+module.exports = app
