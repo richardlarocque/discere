@@ -8,7 +8,9 @@
   "dependencies": {
     "express": "3.4.0",
     "debug": "~0.7.4",
-    "jade": "*",
-    "sqlite3": "*"
+    "jade": "~1.5.0",
+    "sqlite3": "~2.2.7",
+    "underscore": "~1.6.0",
+    "async": "~0.9.0"
   }
 }
