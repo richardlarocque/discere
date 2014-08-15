@@ -5,19 +5,27 @@ function highlightGuessInDefinition(guess, def) {
     return [ document.createTextNode(def) ];
   }
 
-  var split = def.split(filtered_guess)
+  // Split the definition into matching an non-matching substrings.
+  var matcher = new RegExp('(' + filtered_guess + ')', 'i')
+  var split = def.split(matcher)
   var nodes = split.map(function (x) { return document.createTextNode(x) } );
 
-  var span = document.createElement('span');
-  span.appendChild(document.createTextNode(filtered_guess));
-  span.className = 'highlight';
-
+  // Iterate the resulting array of TextNodes.
   var result = []
-  for (var i = 0; i < nodes.length -1; ++i) {
-    result.push(nodes[i]);
-    result.push(span.cloneNode(true));
+  for (var i = 0; i < nodes.length; ++i) {
+    var nodeText = nodes[i].nodeValue;
+    if (!nodeText.match(matcher)) {
+      result.push(nodes[i]);
+    } else {
+      // Highlight matching parts as spans.
+      var span = document.createElement('span');
+      span.appendChild(document.createTextNode(nodeText));
+      span.className = 'highlight';
+      result.push(span)
+    }
   }
-  result.push(nodes[nodes.length-1]);
+
+  // Return entire pretty array.  Result has length > 1 if guess matched.
   return result;
 }
 
@@ -38,8 +46,6 @@ function processGuess(guess, defs) {
   return { 'all_wrong': all_wrong, 'defs_node': ol };
 }
 
-    
-
 function checkDefinition(answers, index) {
   var inputDiv = document.getElementById("input" + index);
   var answerDiv = document.getElementById("answer" + index);
@@ -57,7 +63,13 @@ function checkDefinition(answers, index) {
   }
   answerDiv.appendChild(defs_node);
 
-  imgDiv.className = all_wrong ? 'img-wrong' : 'img-right';
+  if (all_wrong) {
+    imgDiv.classList.add('img-wrong');
+    imgDiv.classList.remove('img-right');
+  } else {
+    imgDiv.classList.add('img-right');
+    imgDiv.classList.remove('img-wrong');
+  }
 
   var nextInput = document.getElementById('input' + (index + 1));
   if (nextInput) {

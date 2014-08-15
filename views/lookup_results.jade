@@ -6,14 +6,15 @@ block includes
 
 block content
   include header
-  .content
-    h1 Results matching '#{query}'
+  .content-wrapper
+    .content
+      h1 Results matching '#{query}'
 
-    each result in results
-      .result
-        h3
-          a(href='/reference/' + result.id)= result.header
-        h4.part= result.part_of_speech
-        each match in result.matching_forms
-          p= match
+      each result in results
+        .result
+          h3
+            a(href='/reference/' + result.id)= result.header
+          h4.part= result.part_of_speech
+          each match in result.matching_forms
+            p= match
   include footer

@@ -7,14 +7,20 @@ function checkAnswer(answers, index) {
   var displayAnswer = displayAnswers[index];
   var guess = inputDiv.value;
 
-  var correct = (answer == guess)
+  var correct = (answer == guess.toLowerCase())
 
   while (answerDiv.hasChildNodes()) {
     answerDiv.removeChild(answerDiv.firstChild);
   }
   answerDiv.appendChild(document.createTextNode(displayAnswer));
 
-  imgDiv.className = correct ? 'img-right' : 'img-wrong';
+  if (correct) {
+    imgDiv.classList.add('img-right');
+    imgDiv.classList.remove('img-wrong');
+  } else {
+    imgDiv.classList.add('img-wrong');
+    imgDiv.classList.remove('img-right');
+  }
 
   var nextInput = document.getElementById('input' + (index + 1));
   if (nextInput) {
