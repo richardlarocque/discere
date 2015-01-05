@@ -1,7 +1,7 @@
 var _ = require('underscore');
 var async = require('async');
 
-var latin = require('latin');
+var latin = require('../latin');
 
 exports.noun = function(req, res) {
   handleRequest(req, res, 'Noun');

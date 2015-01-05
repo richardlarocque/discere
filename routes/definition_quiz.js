@@ -1,7 +1,7 @@
 var async = require('async');
 var _ = require('underscore');
 
-var latin = require('latin');
+var latin = require('../latin');
 
 var fetchWords = function(vocabParams, callback) {
   async.waterfall([

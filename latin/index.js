@@ -2,7 +2,7 @@ var sqlite3 = require('sqlite3');
 
 var async = require('async');
 var _ = require('underscore');
-var vocab = require ('latin/vocabularies.js');
+var vocab = require ('./vocabularies.js');
 
 var getDB = function() {
   return new sqlite3.Database(__dirname + '/latin-db.sqlite3',

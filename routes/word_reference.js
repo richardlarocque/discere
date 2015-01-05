@@ -1,5 +1,5 @@
 var async = require('async');
-var latin = require('latin');
+var latin = require('../latin');
 
 exports.byId = function(req, res) {
   latin.fetchWord(req.params.id,

@@ -13,7 +13,7 @@ var word_reference = require('./routes/word_reference');
 var definition_quiz = require('./routes/definition_quiz');
 var generic_quiz = require('./routes/generic_quiz');
 
-var vocab = require('latin/vocabularies.js');
+var vocab = require('./latin/vocabularies.js');
 
 var app = express();
 
