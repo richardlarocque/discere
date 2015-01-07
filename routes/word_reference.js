@@ -16,6 +16,6 @@ exports.random = function(req, res) {
     async.apply(latin.weightedRandomWordId, latin.getVocabParamsFromRequest(req)),
   ],
   function(err, id, callback) {
-    res.redirect('./' + id)
+    res.redirect('./reference/' + id)
   });
 }
