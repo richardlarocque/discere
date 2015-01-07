@@ -6,6 +6,10 @@
 var express = require('express');
 var http = require('http');
 var path = require('path');
+var favicon = require('serve-favicon');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var errorHandler = require('errorhandler');
 
 var index = require('./routes');
 var word_lookup = require('./routes/word_lookup');
@@ -20,20 +24,19 @@ var app = express();
 // all environments
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
-app.use(express.favicon(
+app.use(favicon(
     path.join(__dirname, 'public', 'images', 'favicon.png')));
-app.use(express.logger('dev'));
+app.use(logger('dev'));
 
 // Cookie handling for the vocab setting.
-app.use(express.cookieParser());
+app.use(cookieParser());
 app.use(vocab.middleware);
 
-app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
 if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
+  app.use(errorHandler());
 }
 
 app.get('/', index.main);
